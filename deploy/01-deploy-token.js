@@ -1,16 +1,20 @@
-const { network, ethers } = require("hardhat")
+const { network, ethers, getNamedAccounts, deployments } = require("hardhat")
+const {initialAmount} = require("../helper-hardhat-config")
 
-module.exports = async function ({ getNamedAccounts, deployments }) {
+
+module.exports = async function () {
 	const { deploy, log } = deployments
 	const { deployer } = await getNamedAccounts()
 	// const chainId = network.config.chainId
-	const inititalSupply = 1e18
+	
 
 	log("Starting contract deploy.....")
 	const token = await deploy("OurToken", {
 		from: deployer,
 		log: true,
-		args: [inititalSupply.toString()],
+		args: [initialAmount],
         waitConfirmations: network.config.blockConfirmations || 1
 	})
 }
+
+module.exports.tags = ["all","OurToken"]

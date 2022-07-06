@@ -4,6 +4,8 @@
 
 require("hardhat-deploy")
 require("dotenv").config()
+require("@nomiclabs/hardhat-waffle");
+
 
 GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
 ACCOUNT_PRIVATE_KEY = process.env.ACCOUNT_PRIVATE_KEY

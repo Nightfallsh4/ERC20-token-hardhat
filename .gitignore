@@ -5,3 +5,4 @@ artifacts
 yarn-error.log
 coverage
 coverage.json
+deployments
